@@ -1,0 +1,13 @@
+/*
+STT	Ma SVien	Ho va ten
+1	B1606869	Thai Bao
+2	B1800169	Le Tuong Dung
+3	B1805707	Vuong Tam Nhu
+*/
+#include<stdio.h>
+int main(){
+    printf("STT	Ma SVien	Ho va ten\n");
+    printf("1	B1606869	Thai Bao\n");
+    printf("2	B1800169	Le Tuong Dung\n");
+    printf("3	B1805707	Vuong Tam Nhu");
+}

@@ -30,7 +30,7 @@ n(1)*10+b       10
 1(b)
 n(0)*10+b       1
 */
-/*int nhiphan(int x){
+int nhiphan(int x){
     int b;
     if(x==0)
          return 0;
@@ -43,19 +43,5 @@ int main(){
     int x;
     printf("x=");scanf("%d",&x);
     printf("nhiphan=%d",nhiphan(x));
-    return 0;
-}*/
-//--------------------------------------------------------//
-//3.Dao nguoc so x vd: 15962->26951
-int daonguoc(int x){
-    int b;
-    if(x==0) return 0;
-    else b=x%10;
-    return daonguoc(x/10)+b*10;
-}
-int main(){
-    int x;
-    printf("x=");scanf("%d",&x);
-    printf("daonguoc=%d",daonguoc(x));
     return 0;
 }
