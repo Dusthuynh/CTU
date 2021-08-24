@@ -26,11 +26,11 @@ Position next(Position P, List L){
     return P+1;
 }
 
-Position locate(ElementType X, List L){
+Position Locate(ElementType X, List L){
     Position P = first(L);
     int Found = 0;
     while((P != endList(L)) && (Found == 0 )){
-        if(retrieve(P,L) == X) Found==1;
+        if(retrieve(P,L) == X) Found = 1;
         else P = next(P, L);
     }
     return P;
@@ -89,11 +89,27 @@ void Delete_List(Position P, List *L){
         printf("Vi tri khong hop le\n");
     else{
         Position Q;
-        for(Q=P-1;Q<L->Last-1;Q++)
+        for(Q=P-1;Q<(L->Last-1);Q++)
             L->Elements[Q]=L->Elements[Q+1];
         L->Last--;
     }
 }
+
+void Delete_duplicate(List *L){
+    int  P = first(*L) - 1;
+    int  Q;
+    while (P != L->Last){
+        Q = P + 1;
+        while (Q != L->Last){
+            if(L->Elements[P] == L->Elements[Q])
+                Delete_List(Q,L);
+            else
+                Q=next(Q,*L);
+        }
+        P++;
+    }  
+}
+
 
 int main(){
     ElementType X;
@@ -108,9 +124,12 @@ int main(){
     printf("Danh sach sau khi them phan tu la: ");
     Print_List(L);
     printf("Noi dung phan tu can xoa: ");scanf("%d",&X);
-    P=locate(X,L);
+    P = Locate(X,L);
     Delete_List(P,&L);
     printf("Danh sach sau khi xoa %d la: ",X);
+    Print_List(L);
+    printf("Danh sach sau khi xoa trung lap la: ");
+    Delete_duplicate(&L);
     Print_List(L);
     return 0;
 }
