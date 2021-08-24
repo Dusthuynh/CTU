@@ -26,10 +26,10 @@ Position next(Position P, List L){
     return P+1;
 }
 
-Position Locate(ElementType X, List L){
+Position locate(ElementType X, List L){
     Position P = first(L);
     int Found = 0;
-    while((P!=endList(L)) && (Found ==0 )){
+    while((P != endList(L)) && (Found == 0 )){
         if(retrieve(P,L) == X) Found==1;
         else P = next(P, L);
     }
@@ -96,7 +96,6 @@ void Delete_List(Position P, List *L){
 }
 
 int main(){
-    List L;
     ElementType X;
     Position P;
     MakeNull_List(&L);
@@ -109,7 +108,7 @@ int main(){
     printf("Danh sach sau khi them phan tu la: ");
     Print_List(L);
     printf("Noi dung phan tu can xoa: ");scanf("%d",&X);
-    P=Locate(X,L);
+    P=locate(X,L);
     Delete_List(P,&L);
     printf("Danh sach sau khi xoa %d la: ",X);
     Print_List(L);
