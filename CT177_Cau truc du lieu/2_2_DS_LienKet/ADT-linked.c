@@ -116,12 +116,12 @@ int main(){
     Read_List(&L);
     printf("Danh sach vua nhap: ");
     Print_List(L); // In danh sach len man hinh
- /*   printf("Phan tu can them: ");scanf("%d",&X);
+    printf("Phan tu can them: ");scanf("%d",&X);
     printf("Vi tri can them: ");scanf("%d",&P);
-    Insert_List(X,P,&L);
+    insertList(X,P,&L);
     printf("Danh sach sau khi them phan tu la: ");
     Print_List(L);
-    printf("Noi dung phan tu can xoa: ");scanf("%d",&X);
+   /* printf("Noi dung phan tu can xoa: ");scanf("%d",&X);
     P = Locate(X,L);
     Delete_List(P,&L);
     printf("Danh sach sau khi xoa %d la: ",X);

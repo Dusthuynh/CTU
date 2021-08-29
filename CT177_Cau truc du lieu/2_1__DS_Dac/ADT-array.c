@@ -98,18 +98,17 @@ void Delete_List(Position P, List *L){
 void Delete_duplicate(List *L){
     int  P = first(*L) - 1;
     int  Q;
-    while (P != L->Last){
+    while (P != L->Last-1){
         Q = P + 1;
         while (Q != L->Last){
             if(L->Elements[P] == L->Elements[Q])
-                Delete_List(Q,L);
+                Delete_List(Q+1,L);
             else
-                Q=next(Q,*L);
+                Q++;
         }
         P++;
-    }  
-}
-
+    }
+}                       
 
 int main(){
     ElementType X;
