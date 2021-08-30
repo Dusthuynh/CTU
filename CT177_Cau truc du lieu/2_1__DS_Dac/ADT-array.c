@@ -108,7 +108,27 @@ void Delete_duplicate(List *L){
         }
         P++;
     }
-}                       
+}
+
+void swap(Position a, Position b, List *L){
+     ElementType temp;
+     temp=L->Elements[a-1];
+     L->Elements[a-1]=L->Elements[b-1];
+     L->Elements[b-1]=temp;
+}
+
+void Sort_List(List *L){
+     Position P=first(*L);
+     while (P!=endList(*L)){
+           Position Q=next(P,*L);
+           while (Q!=endList(*L)){
+                 if (retrieve(P,*L)>retrieve(Q,*L))
+                    swap(P,Q,L);
+                 Q=next(Q,*L);
+                 }
+           P=next(P,*L);
+     }
+}
 
 int main(){
     ElementType X;
@@ -117,18 +137,25 @@ int main(){
     Read_List(&L);
     printf("Danh sach vua nhap: ");
     Print_List(L); // In danh sach len man hinh
+
     printf("Phan tu can them: ");scanf("%d",&X);
     printf("Vi tri can them: ");scanf("%d",&P);
     Insert_List(X,P,&L);
     printf("Danh sach sau khi them phan tu la: ");
     Print_List(L);
+
     printf("Noi dung phan tu can xoa: ");scanf("%d",&X);
     P = Locate(X,L);
     Delete_List(P,&L);
     printf("Danh sach sau khi xoa %d la: ",X);
     Print_List(L);
+
     printf("Danh sach sau khi xoa trung lap la: ");
     Delete_duplicate(&L);
+    Print_List(L);
+
+    printf("Danh sach sau khi sap xep tang dan la: \n");
+    Sort_List(&L);
     Print_List(L);
     return 0;
 }
