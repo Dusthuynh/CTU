@@ -1,0 +1,3 @@
+module TuHoc {
+	exports TuHoc;
+}
