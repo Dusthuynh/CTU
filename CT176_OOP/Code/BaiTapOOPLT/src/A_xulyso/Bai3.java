@@ -3,7 +3,7 @@ package A_xulyso;
 import java.util.Scanner;
 
 //Viết chương trình chuyển đổi một số tự nhiên ở hệ số 10 thành một số ở hệ cơ số B (1 <= B <= 32) bất kỳ
-public class bai3 {
+public class Bai3 {
 	public static void main(String[] args) {
 		int n,b;
 		Scanner sc= new Scanner(System.in);

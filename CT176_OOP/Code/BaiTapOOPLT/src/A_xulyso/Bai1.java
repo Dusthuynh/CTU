@@ -5,7 +5,7 @@ import java.lang.Math;
 import java.text.DecimalFormat;
 
 /*Viết chương trình giải phương trình bậc 2: ax2 + bx + c = 0*/
-public class bai_1 {
+public class Bai1 {
 	
 	public static void gptb1(float a, float b) {
 		if (a==0 && b==0) 

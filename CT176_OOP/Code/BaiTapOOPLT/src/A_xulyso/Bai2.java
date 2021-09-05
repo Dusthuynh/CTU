@@ -2,7 +2,7 @@ package A_xulyso;
 //Viết chương trình tính giai thừa của n
 import java.util.Scanner;
 
-public class bai_2 {
+public class Bai2 {
 
 	public long giaithua(int n) {
 		long x=1;
@@ -16,7 +16,7 @@ public class bai_2 {
 		Scanner sc = new Scanner(System.in);
 		n=sc.nextInt();
 		
-		bai_2 t = new bai_2();
+		Bai2 t = new Bai2();
 		long res = t.giaithua(n);
 		
 		System.out.println(n+"! = "+res);
