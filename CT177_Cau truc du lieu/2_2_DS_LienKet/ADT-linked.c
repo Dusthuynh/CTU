@@ -6,7 +6,7 @@ struct Node{
     ElementType Element;
     struct Node* Next;
 };
-typedef struct Node* Position;
+typedef struct Node* Position;      //con trỏ chứa địa chỉ
 typedef Position List;
 
 void MakeNull_List (List *L){
