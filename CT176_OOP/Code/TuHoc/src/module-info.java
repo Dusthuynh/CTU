@@ -1,3 +1,0 @@
-module TuHoc {
-	exports TuHoc;
-}

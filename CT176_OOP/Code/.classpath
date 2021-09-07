@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<classpath>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="src" path="BaiTapLT_renluyen_java/src"/>
-	<classpathentry kind="src" path="LTHDT/src"/>
-	<classpathentry kind="src" path="TuHoc/src"/>
-	<classpathentry kind="output" path="BaiTapLT_renluyen_java/bin"/>
-</classpath>
