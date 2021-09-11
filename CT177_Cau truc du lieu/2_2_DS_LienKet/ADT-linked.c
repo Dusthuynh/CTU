@@ -105,7 +105,6 @@ void Read_List (List *L){
         insertList (value, P, L);
         P = Next(P,*L);
     }
-
 }
 
 int main(){

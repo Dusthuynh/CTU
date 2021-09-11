@@ -45,7 +45,7 @@ int fullList(List L){
 }
 
 void MakeNull_List(List *L){
-    L->Last=0;
+    L->Last=0; 
 }
 
 void Read_List(List *L){
