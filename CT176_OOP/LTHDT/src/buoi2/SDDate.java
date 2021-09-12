@@ -6,10 +6,8 @@ public class SDDate {
 		Date date = new Date();
 		date.input();
 		date.display();
-		date.ngayHomsau();
-		date.display();
-		date.congNgay(5);
-		date.display();
+		date.ngayHomsau().display();;
+		date.congNgay(5).display();;
 	}
 
 }

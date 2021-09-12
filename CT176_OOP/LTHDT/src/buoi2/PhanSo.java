@@ -6,6 +6,8 @@ public class PhanSo {
 	int tu;
 	int mau;
 	public PhanSo() {
+		tu = 0;
+		mau = 1;
 	}
 	
 	public PhanSo(int tu, int mau) {

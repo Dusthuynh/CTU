@@ -3,8 +3,8 @@ package buoi2;
 import java.util.Scanner;
 
 public class Diem {
-	int x;
-	int y;
+	private int x;
+	private int y;
 	
 	public Diem(){
 			x=0;
@@ -18,9 +18,9 @@ public class Diem {
 //==============================DustHuyn==============================//
 	public void nhapDiem() {
 		Scanner sc = new Scanner(System.in);
-		System.out.print("Nhap x:");
+		System.out.print("Nhap x= ");
 		x=sc.nextInt();
-		System.out.print("Nhap y:");
+		System.out.print("Nhap y= ");
 		y=sc.nextInt();
 	}
 //==============================DustHuyn==============================//

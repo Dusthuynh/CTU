@@ -24,73 +24,50 @@ public class Date {
 	}
 //==============================DustHuyn==============================//
 	public void input() {
+		Scanner sc = new Scanner(System.in);
 		do {
-			System.out.println("Nhap date: ");
-			Scanner sc = new Scanner(System.in);
+			System.out.println("Nhap date: ##/##/####");
 			String date=sc.next();
 			String[] arr=(date.split("/"));
 			ngay = Integer.parseInt(arr[0]);
 			thang = Integer.parseInt(arr[1]);
 			nam = Integer.parseInt(arr[2]);
+			if(!hopLe()) System.out.println("Nhap loi, vui long nhap lai:");
 		}while(!hopLe());
 	}
 //==============================DustHuyn==============================//
 	public boolean hopLe() {
-		boolean check = true;
-		if(ngay<0) check = false;
-		if(thang>12 || thang<0) check = false;
+				   //0, 1, 2, 3, 4, 5, 6, 7, 8, 9,10,11,12
+		int max[] = {0,31,28,31,30,31,30,31,31,30,31,30,31};
+		if ((nam%4==0 && nam%100!=0) || nam%400==0) max[2]=29;
 		
-		if((thang==1 || thang==3 || thang==5 || thang==7 || thang==8 || thang==10 || thang==12) && (ngay>31))
-			check = false;
-		else 
-		if((thang==4 || thang==6 || thang==9 || thang==11) && (ngay>30))
-			check = false;
-		else 
-		if((thang==2) && ((nam%4==0 && nam%100!=0) || nam%400==0) && ((ngay>29)))
-			check = false;
-		else 
-		if((thang==2) && !((nam%4==0 && nam%100!=0) || nam%400==0) && ((ngay>28))) 
-			check = false;
+		boolean check = false;
+		if(ngay>0 && thang>0 && nam>0 && thang<13 && ngay<=max[thang]) 
+			check = true;
 		return check;
 	}
 //==============================DustHuyn==============================//
-	public int checkLastDay() {
-		int check=0;
-		
-		if((thang==1 || thang==3 || thang==5 || thang==7 || thang==8 || thang==10) && (ngay==31)) 
-			check = 1;
-		if((thang==4 || thang==6 || thang==9 || thang==11) && (ngay==30))
-			check = 1;
-		if(((nam%4==0 && nam%100!=0) || nam%400==0) && (ngay==29) && (thang==2))
-			check = 1;
-		if((!(nam%4==0 && nam%100!=0) || nam%400==0) && (ngay==28) && (thang==2))
-			check = 1;
-		
-		if(thang==12 && ngay==31)
-			check = 2;
-		
-		return check;
-	}
-//==============================DustHuyn==============================//
-	public void ngayHomsau(){
-		if(checkLastDay()==1) {
-			ngay=1;
-			thang+=1;
-		}else
-		if(checkLastDay()==2){
-			ngay=1;
-			thang=1;
-			nam+=1;
-		}else 
-		if(checkLastDay()==0) {
-			ngay+=1;
+	public Date ngayHomsau(){
+		Date res = new Date(ngay, thang, nam);
+		res.ngay++;
+		if(!res.hopLe()) {
+			res.ngay=1;
+			res.thang++;
+			
+			if(!res.hopLe()) {
+				res.thang=1;
+				res.nam++;
+			}
 		}
+		return res;
 	}
 //==============================DustHuyn==============================//
-	public void congNgay(int n) {
+	public Date congNgay(int n) {
+		Date res = new Date(ngay, thang, nam);
 		for(int i=0;i<n;i++) {
-			ngayHomsau();
+			res = res.ngayHomsau();
 		}
+		return res;
 	}
 	
 	public static void main(String[] args) {

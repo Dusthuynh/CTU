@@ -13,9 +13,8 @@ public class SDDiem extends Diem{
 		System.out.print("Display point B:");
 		B.hienthi();
 		
-		Diem C = new Diem();
-		C.x=-A.giaTriX();
-		C.y=-A.giaTriY();
+		
+		Diem C = new Diem(-B.giaTriX(),-B.giaTriY());
 		System.out.print("Display point C:");
 		C.hienthi();
 		
