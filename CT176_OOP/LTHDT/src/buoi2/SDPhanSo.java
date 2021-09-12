@@ -3,10 +3,6 @@ package buoi2;
 import java.util.Scanner;
 
 public class SDPhanSo {
-	//+Luu y, khi xai ham x.cong(y) se lam thay doi gia tri cua y, 
-	// do phai quy dong; nhung khong lam thay doi gia tri cua x,
-	// do da tao doi tuong khac. Co the fix lai truong hop nay.
-	//+Ham display chi hien thi nhung chua co rut gon, co the fix.
 	public static void main(String[] args) {
 		PhanSo a = new PhanSo(3,7);
 		PhanSo b = new PhanSo(4,9);

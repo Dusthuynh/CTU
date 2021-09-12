@@ -10,7 +10,7 @@ public class Date {
 	public Date() {
 		ngay=1;
 		thang=1;
-		nam=1990;
+		nam=1945;
 	}
 	
 	public Date(int ngay, int thang, int nam) {

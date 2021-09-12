@@ -74,6 +74,24 @@ public class PhanSo {
 		else return false;
 	}
 //==============================DustHuyn==============================//
+	public int ucln(int a, int b){
+	    if (a == 0 || b == 0){
+	        return a + b;
+	    }
+	    while (a != b){
+	        if (a > b){
+	            a -= b; 
+	        }else{
+	            b -= a;
+	        }
+	    }
+	    return a;
+	}
+	
+	public int bcnn(int a, int b) {
+		return (a*b)/ucln(a,b);
+	}
+//==============================DustHuyn==============================//
 	public PhanSo cong(PhanSo a) {
 		PhanSo x = new PhanSo(tu, mau);
 		PhanSo y = new PhanSo(a.tu, a.mau);
@@ -106,24 +124,20 @@ public class PhanSo {
 	
 //==============================DustHuyn==============================//	
 	public PhanSo rutgon(PhanSo x) {
-		int min = Math.abs(x.tu);
-		if(Math.abs(x.tu) > Math.abs(x.mau)) min=x.mau;
-		for(int i=min;i>1;i--) {
-			if(x.mau%i==0 && x.tu%i==0) {
-				x.tu/=i;
-				x.mau/=i;
-			}
-		}
-		return x;
+		PhanSo res = new PhanSo(x.tu,x.mau);
+		int t = ucln(res.tu,res.mau);
+		res.tu  /= t;
+		res.mau /= t;
+		return res;
 	}
 //==============================DustHuyn==============================//	
 	public void quydongCungMau(PhanSo x, PhanSo a) {
 		if(x.mau!=a.mau) {
-			int mau=x.mau;
-			x.mau*=a.mau;
-			x.tu *=a.mau;
-			a.tu*=mau;
-			a.mau*=mau;
+			int t = bcnn(x.mau,a.mau);
+			x.tu *= (t/x.mau);
+			a.tu *= (t/a.mau);
+			x.mau = t;
+			a.mau = t;
 		}
 	}
 //==============================DustHuyn==============================//	
