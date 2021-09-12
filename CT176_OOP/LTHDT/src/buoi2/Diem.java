@@ -3,48 +3,50 @@ package buoi2;
 import java.util.Scanner;
 
 public class Diem {
-	int x,y;
+	int x;
+	int y;
+	
 	public Diem(){
-			this.x=0;
-			this.y=0;
+			x=0;
+			y=0;
 	}
 	
-	public Diem(int a, int b) {
-		this.x=a;
-		this.y=b;
+	public Diem(int x, int y) {
+		this.x=x;
+		this.y=y;
 	}
 //==============================DustHuyn==============================//
 	public void nhapDiem() {
 		Scanner sc = new Scanner(System.in);
 		System.out.print("Nhap x:");
-		this.x=sc.nextInt();
+		x=sc.nextInt();
 		System.out.print("Nhap y:");
-		this.y=sc.nextInt();
+		y=sc.nextInt();
 	}
 //==============================DustHuyn==============================//
 	public void hienthi() {
-		System.out.println("("+this.x+","+this.y+")");
+		System.out.println("("+x+","+y+")");
 	}
 //==============================DustHuyn==============================//
 	public void doiDiem(int dx, int dy) {
-		this.x+=dx;
-		this.y+=dy;
+		x+=dx;
+		y+=dy;
 	}
 //==============================DustHuyn==============================//
 	public int giaTriX() {
-		return this.x;
+		return x;
 	}
 //==============================DustHuyn==============================//
 	public int giaTriY() {
-		return this.y;
+		return y;
 	}
 //==============================DustHuyn==============================//
 	public float khoangCach() {
-		return (float)Math.sqrt(Math.pow(this.x, 2)+Math.pow(this.y, 2));
+		return (float)Math.sqrt(Math.pow(x, 2)+Math.pow(y, 2));
 	}
 //==============================DustHuyn==============================//
 	public float khoangCach(Diem d) {
-		return (float)Math.sqrt(Math.pow(this.x-d.x, 2) + Math.pow(this.y-d.y, 2));
+		return (float)Math.sqrt(Math.pow(x-d.x, 2) + Math.pow(y-d.y, 2));
 	}
 //==============================DustHuyn==============================//
 

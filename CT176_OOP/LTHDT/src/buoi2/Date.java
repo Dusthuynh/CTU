@@ -8,9 +8,9 @@ public class Date {
 	private int nam;
 	
 	public Date() {
-		this.ngay=1;
-		this.thang=1;
-		this.nam=1990;
+		ngay=1;
+		thang=1;
+		nam=1990;
 	}
 	
 	public Date(int ngay, int thang, int nam) {
@@ -20,7 +20,7 @@ public class Date {
 	}
 //==============================DustHuyn==============================//
 	public void display() {
-		System.out.printf("%02d/%02d/%4d\n",this.ngay,this.thang,this.nam);
+		System.out.printf("%02d/%02d/%4d\n",ngay,thang,nam);
 	}
 //==============================DustHuyn==============================//
 	public void input() {
@@ -29,27 +29,27 @@ public class Date {
 			Scanner sc = new Scanner(System.in);
 			String date=sc.next();
 			String[] arr=(date.split("/"));
-			this.ngay = Integer.parseInt(arr[0]);
-			this.thang = Integer.parseInt(arr[1]);
-			this.nam = Integer.parseInt(arr[2]);
+			ngay = Integer.parseInt(arr[0]);
+			thang = Integer.parseInt(arr[1]);
+			nam = Integer.parseInt(arr[2]);
 		}while(!hopLe());
 	}
 //==============================DustHuyn==============================//
 	public boolean hopLe() {
 		boolean check = true;
-		if(this.ngay<0) check = false;
-		if(this.thang>12 || this.thang<0) check = false;
+		if(ngay<0) check = false;
+		if(thang>12 || thang<0) check = false;
 		
-		if((this.thang==1 || this.thang==3 || this.thang==5 || this.thang==7 || this.thang==8 || this.thang==10 || this.thang==12) && (this.ngay>31))
+		if((thang==1 || thang==3 || thang==5 || thang==7 || thang==8 || thang==10 || thang==12) && (ngay>31))
 			check = false;
 		else 
-		if((this.thang==4 || this.thang==6 || this.thang==9 || this.thang==11) && (this.ngay>30))
+		if((thang==4 || thang==6 || thang==9 || thang==11) && (ngay>30))
 			check = false;
 		else 
-		if((this.thang==2) && ((this.nam%4==0 && this.nam%100!=0) || this.nam%400==0) && ((this.ngay>29)))
+		if((thang==2) && ((nam%4==0 && nam%100!=0) || nam%400==0) && ((ngay>29)))
 			check = false;
 		else 
-		if((this.thang==2) && !((this.nam%4==0 && this.nam%100!=0) || this.nam%400==0) && ((this.ngay>28))) 
+		if((thang==2) && !((nam%4==0 && nam%100!=0) || nam%400==0) && ((ngay>28))) 
 			check = false;
 		return check;
 	}
@@ -57,16 +57,16 @@ public class Date {
 	public int checkLastDay() {
 		int check=0;
 		
-		if((this.thang==1 || this.thang==3 || this.thang==5 || this.thang==7 || this.thang==8 || this.thang==10) && (this.ngay==31)) 
+		if((thang==1 || thang==3 || thang==5 || thang==7 || thang==8 || thang==10) && (ngay==31)) 
 			check = 1;
-		if((this.thang==4 || this.thang==6 || this.thang==9 || this.thang==11) && (this.ngay==30))
+		if((thang==4 || thang==6 || thang==9 || thang==11) && (ngay==30))
 			check = 1;
-		if(((this.nam%4==0 && this.nam%100!=0) || this.nam%400==0) && (this.ngay==29) && (this.thang==2))
+		if(((nam%4==0 && nam%100!=0) || nam%400==0) && (ngay==29) && (thang==2))
 			check = 1;
-		if((!(this.nam%4==0 && this.nam%100!=0) || this.nam%400==0) && (this.ngay==28) && (this.thang==2))
+		if((!(nam%4==0 && nam%100!=0) || nam%400==0) && (ngay==28) && (thang==2))
 			check = 1;
 		
-		if(this.thang==12 && this.ngay==31)
+		if(thang==12 && ngay==31)
 			check = 2;
 		
 		return check;
@@ -74,16 +74,16 @@ public class Date {
 //==============================DustHuyn==============================//
 	public void ngayHomsau(){
 		if(checkLastDay()==1) {
-			this.ngay=1;
-			this.thang+=1;
+			ngay=1;
+			thang+=1;
 		}else
 		if(checkLastDay()==2){
-			this.ngay=1;
-			this.thang=1;
-			this.nam+=1;
+			ngay=1;
+			thang=1;
+			nam+=1;
 		}else 
 		if(checkLastDay()==0) {
-			this.ngay+=1;
+			ngay+=1;
 		}
 	}
 //==============================DustHuyn==============================//
