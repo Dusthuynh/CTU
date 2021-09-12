@@ -27,6 +27,8 @@ public class SDPhanSo {
 //==============================DustHuyn==============================//
 		System.out.print("x + y = ");
 		(x.cong(y)).display();
+		x.display();
+		y.display();
 //==============================DustHuyn==============================//
 		System.out.print("Nhap so phan so: ");
 		Scanner sc = new Scanner(System.in);
@@ -38,6 +40,7 @@ public class SDPhanSo {
 			arr[i].input(); 
 			System.out.println("/////////");
 		}
+		System.out.println("Day phan so da nhap:");
 		for(int i=1;i<=n;i++)
 			arr[i].display();
 //==============================DustHuyn==============================//
@@ -47,9 +50,9 @@ public class SDPhanSo {
 			Sum = arr[j].cong(Sum);
 		}
 		Sum.display();
-		for(int j=1;j<=n;j++)
-			arr[j].display();
-		
+		/*for(int j=1;j<=n;j++)
+			arr[j].display();*/
+//==============================DustHuyn==============================//
 		System.out.print("Max:");
 		float max=Float.MIN_VALUE;
 		int check=0;

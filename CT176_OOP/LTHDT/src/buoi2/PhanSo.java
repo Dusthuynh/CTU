@@ -5,6 +5,7 @@ import java.util.Scanner;
 public class PhanSo {
 	int tu;
 	int mau;
+	
 	public PhanSo() {
 		tu = 0;
 		mau = 1;
@@ -19,10 +20,11 @@ public class PhanSo {
 		Scanner sc = new Scanner(System.in);
 		do {
 			System.out.println("Nhap gia tri cho phan so:");
-			System.out.print("Tu so:");
+			System.out.print("Tu so = ");
 			this.tu=sc.nextInt();
-			System.out.print("Mau so:");
+			System.out.print("Mau so = ");
 			this.mau=sc.nextInt();
+			if(this.mau==0) System.out.print("Ban nhap loi mau so, vui long nhap lai");
 		} while(this.mau==0);
 		
 	}
@@ -42,9 +44,6 @@ public class PhanSo {
 //==============================DustHuyn==============================//	
 	public void display() {
 		chuanhoa();
-		int mau = this.mau;
-		int tu  = this.tu;
-
 		if (tu==0){
 			System.out.println("0");
 		}else if (mau==1) {
@@ -54,22 +53,19 @@ public class PhanSo {
 	}
 //==============================DustHuyn==============================//
 	public void nghichDao() {
-		int temp=this.tu;
-		this.tu=this.mau;
-		this.mau=temp;
+		int temp=tu;
+		tu=mau;
+		mau=temp;
 	}
 //==============================DustHuyn==============================//
 	public PhanSo giatriNghichDao() {	
-		int tu  = this.mau;
-		int mau = this.tu;
-		PhanSo x = new PhanSo(tu,mau);
+		PhanSo x = new PhanSo(mau,tu);
 		return x;
 	}
 //==============================DustHuyn==============================//
 	public float giatriThuc() {
-		float tu = this.tu;
-		float mau= this.mau;
-		return (tu/mau);
+		float realvalue = (float)tu/(float)mau;
+		return realvalue;
 	}
 //==============================DustHuyn==============================//
 	public boolean lonHon(PhanSo a) {
@@ -79,32 +75,33 @@ public class PhanSo {
 	}
 //==============================DustHuyn==============================//
 	public PhanSo cong(PhanSo a) {
-		PhanSo x = new PhanSo();
-		x.tu =this.tu;
-		x.mau=this.mau;
-		
-		quydongCungMau(x, a);
-		x.tu+=a.tu;
+		PhanSo x = new PhanSo(tu, mau);
+		PhanSo y = new PhanSo(a.tu, a.mau);
+		quydongCungMau(x, y);
+		x.tu+=y.tu;
 		x = rutgon(x);
 		return x;
 	}
 //==============================DustHuyn==============================//
 	public PhanSo tru(PhanSo a) {
-		if(a.tu>0) a.tu=-a.tu;
-		else if(a.mau>0) a.mau=-a.mau;
-		return this.cong(a);
+		PhanSo x = new PhanSo(tu, mau);
+		PhanSo y = new PhanSo(-a.tu, a.mau);
+		return x.cong(y);
 	}
 //==============================DustHuyn==============================//
 	public PhanSo nhan(PhanSo a) {
 		int mau = this.mau*a.mau;
 		int tu  = this.tu*a.tu;
 		PhanSo x = new PhanSo(tu, mau);
+		x = rutgon(x);
 		return x;
 	}
 //==============================DustHuyn==============================//
 	public PhanSo chia(PhanSo a) {
-		a = a.giatriNghichDao();
-		return nhan(a);
+		PhanSo x = new PhanSo(tu, mau);
+		PhanSo y = new PhanSo(a.tu, a.mau);
+		y = a.giatriNghichDao();
+		return x.nhan(y);
 	}
 	
 //==============================DustHuyn==============================//	
