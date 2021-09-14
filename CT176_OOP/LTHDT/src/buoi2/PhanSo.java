@@ -3,8 +3,8 @@ package buoi2;
 import java.util.Scanner;
 
 public class PhanSo {
-	int tu;
-	int mau;
+	private int tu;
+	private int mau;
 	
 	public PhanSo() {
 		tu = 0;

@@ -1,6 +1,8 @@
 package buoi2;
 
 import java.util.Scanner;
+	//da co ham rut gon nhung chua su dung. hoi lai th co rut gon khi ra kq hay khong,
+	//nhat la cho sort
 
 public class SDPhanSo {
 	public static void main(String[] args) {
@@ -23,8 +25,8 @@ public class SDPhanSo {
 //==============================DustHuyn==============================//
 		System.out.print("x + y = ");
 		(x.cong(y)).display();
-		x.display();
-		y.display();
+		//x.display();
+		//y.display();
 //==============================DustHuyn==============================//
 		System.out.print("Nhap so phan so: ");
 		Scanner sc = new Scanner(System.in);

@@ -79,24 +79,30 @@ public class SinhVien {
 			arr[b] = temp;
 	}
 //-------------------------------------------------------------------------------------------//
-	public void edit(SinhVien arr[]) {
-		int idx = takeIndexbyID(arr);
-		System.out.println("Sua thong tin sinh vien co ID="+arr[idx].id+" :");
-		Scanner sc = new Scanner(System.in);
-		System.out.println("-Nhap thong tin SV:");
-		System.out.print("Name: ");
-		arr[idx].name = sc.nextLine();
-		System.out.print("Address: ");
-		arr[idx].address = sc.nextLine();
-		System.out.print("GPA: ");
-		arr[idx].gpa = sc.nextDouble();
+	public void edit(SinhVien arr[],int n) {
+		if (n==0) System.out.println("!!! Danh sach rong !!!");
+		else {
+			int idx = takeIndexbyID(arr);
+			System.out.println("Sua thong tin sinh vien co ID="+arr[idx].id+" :");
+			Scanner sc = new Scanner(System.in);
+			System.out.println("-Nhap thong tin SV:");
+			System.out.print("Name: ");
+			arr[idx].name = sc.nextLine();
+			System.out.print("Address: ");
+			arr[idx].address = sc.nextLine();
+			System.out.print("GPA: ");
+			arr[idx].gpa = sc.nextDouble();
+		}
 	}
 //-------------------------------------------------------------------------------------------//
-	public void delete(SinhVien arr[]){
-		int k = takeIndexbyID(arr);
-		SinhVien x  = new SinhVien();
-		for(int i=k;i<arr.length-1;i++)
-			x.swapSV(arr,i,i+1);
+	public void delete(SinhVien arr[],int n){
+		if (n==0) System.out.println("!!! Danh sach rong !!!");
+		else{
+			int k = takeIndexbyID(arr);
+			SinhVien x  = new SinhVien();
+			for(int i=k;i<n;i++)
+				x.swapSV(arr,i,i+1);
+		}
 	}
 //-------------------------------------------------------------------------------------------//
 	public void sortbyGPA(SinhVien arr[], int n) {
@@ -124,51 +130,6 @@ public class SinhVien {
 	}
 //-------------------------------------------------------------------------------------------//
 	public static void main(String[] args) {
-		SinhVien x  = new SinhVien();
-		SinhVien a1 = new SinhVien("B201", "Nguyen Hoang Nam", " 60/5 Tran Quang Dieu, Khom 4, Phuong 7, TP Soc Trang",3.5);
-		SinhVien a2 = new SinhVien("B205", "Do Trung Hieu", " 60/3 Phan Dinh Phung, Khom 3, Phuong 4, TP Soc Trang",2.7);
-		SinhVien a3 = new SinhVien("B208", "Vu Thai Ha", " 302/486 Phan Chau trinh, Khom 4, Phuong 7, TP Soc Trang",1.5);
-		SinhVien a4 = new SinhVien("B202", "Phan Van An", " 12 Nguyen Hue, Khom 3, Phuong 4, TP Soc Trang",4);
-		
-		
-		Scanner sc = new Scanner(System.in);
-		SinhVien SV[] = new SinhVien[4];
-		SV[0]= new SinhVien(a1);
-		SV[1]= new SinhVien(a2);
-		SV[2]= new SinhVien(a3);
-		SV[3]= new SinhVien(a4);
-		
-		int n = SV.length;							//so luong doi tuong trong sv						
-		x.ouputForm();
-		for(int i=0; i<n; i++) {
-			SV[i].display();
-		}
-
-		System.out.println("--Edit 1 SV--");
-		x.edit(SV);
-		System.out.println("--Sau khi edit--");
-		x.ouputForm();
-		for(int i=0; i<n; i++) 
-			SV[i].display();
-		
-		System.out.println("--Delete 1 SV--");
-		x.delete(SV);
-		n--;
-		x.ouputForm();
-		for(int i=0; i<n; i++)
-			SV[i].display();
-		
-		System.out.println("--Sort by GPA--");
-		x.sortbyGPA(SV,n);
-		x.ouputForm();
-		for(int i=0; i<n; i++)
-			SV[i].display();
-			
-		System.out.println("--Sort by Name--");
-		x.sortbyName(SV,n);
-		x.ouputForm();
-		for(int i=0; i<n; i++)
-			SV[i].display();
 	}
 
 }
