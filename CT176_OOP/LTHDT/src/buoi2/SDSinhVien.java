@@ -74,15 +74,9 @@ public class SDSinhVien {
 	public static void main(String[] args) {
 		SDSinhVien SD = new SDSinhVien();
 		SinhVien SV[] = new SinhVien[100];
-		String line = new String(new char[33]).replace('\0', '-');
+		String line = new String(new char[77]).replace('\0', '-');
 		System.out.println(line);
-		System.out.println("|1. Add student.		|");
-		System.out.println("|2. Edit student by id.		|");
-		System.out.println("|3. Delete student by id.	|");
-		System.out.println("|4. Sort student by gpa.	|");
-		System.out.println("|5. Sort student by name.	|");
-		System.out.println("|6. Show student.		|");
-		System.out.println("|0. Exit.			|");
+		System.out.println("|1.Add| |2.Edit| |3.Delete| |4.Sort by id| |5.Sort by name| |6.Show| |0.Exit|");
 		System.out.println(line);
 		SD.menu(SV);
 	}	
