@@ -9,7 +9,7 @@ struct Node{
 typedef struct Node* Position;      //con trỏ chứa địa chỉ
 typedef Position List;
 
-void MakeNull_List (List *L){
+void makenullList (List *L){
     (*L)=(struct Node*)malloc(sizeof(struct Node));
     (*L)->Next=NULL;
 }
@@ -52,7 +52,7 @@ Position endList(List L){
     return P;
 }
 
-Position Next(Position P, List L){
+Position next(Position P, List L){
     return P->Next;
 }
 
@@ -70,31 +70,31 @@ Position locate(ElementType X, List L){
 Position myLocate(ElementType X, int i, List L){
     Position P = first(L);
     int count = 0;
-    while (Next(P,L) != NULL && count <i){
+    while (next(P,L) != NULL && count <i){
         if (retrieve(P,L) == X)
             count++;
         if(count<i)
-            P=Next(P,L);
+            P=next(P,L);
     }
     return P;
 }
 
-Position Previous(Position P, List L){
+Position previous(Position P, List L){
     Position T = first(L);
-    while (Next(T,L) != P) T=Next(T,L);
+    while (next(T,L) != P) T=next(T,L);
     return T;
 }
 
-void Print_List (List L){
+void printList (List L){
     Position P =first(L);
     while( P!=endList(L)){
         printf("%d ", retrieve(P,L));
-        P = Next(P,L);
+        P = next(P,L);
     }
     printf("\n");
 }
 
-void Read_List (List *L){
+void readList (List *L){
     int n, value;
     printf("Nhap so phan tu trong danh sach: ");scanf("%d",&n);
     Position P = first(*L);
@@ -103,7 +103,7 @@ void Read_List (List *L){
     for(int i=0; i< n; ++i){     
         scanf("%d",&value);
         insertList (value, P, L);
-        P = Next(P,*L);
+        P = next(P,*L);
     }
 }
 
@@ -111,22 +111,22 @@ int main(){
     ElementType X;
     Position P;
     List L;
-    MakeNull_List(&L);
-    Read_List(&L);
+    makenullList(&L);
+    readList(&L);
     printf("Danh sach vua nhap: ");
-    Print_List(L); // In danh sach len man hinh
-    printf("Phan tu can them: ");scanf("%d",&X);
-    printf("Vi tri can them: ");scanf("%d",&P);
+    printList(L); 
+    printf("Phan tu can them: ");scanf("%d",&X);        //cach viet ham main
     insertList(X,P,&L);
     printf("Danh sach sau khi them phan tu la: ");
-    Print_List(L);
-   /* printf("Noi dung phan tu can xoa: ");scanf("%d",&X);
-    P = Locate(X,L);
-    Delete_List(P,&L);
+    printList(L);
+    printf("Noi dung phan tu can xoa: ");scanf("%d",&X);
+    P = locate(X,L);
+    deleteList(P,&L);
     printf("Danh sach sau khi xoa %d la: ",X);
-    Print_List(L);
-    printf("Danh sach sau khi xoa trung lap la: ");
-    Delete_duplicate(&L);
-    Print_List(L);*/
+    printList(L);
+
+    /*printf("Danh sach sau khi xoa trung lap la: ");
+    deleteduplicate(&L);
+    printList(L);*/
     return 0;
 }

@@ -43,7 +43,7 @@ Position next(Position P, List L){
     return P->Next;
 }
 
-Position Locate(ElementType X, List L){
+Position locate(ElementType X, List L){
     Position P = first(L);
     int Found = 0;
     while((P != endList(L)) && (Found == 0 )){
@@ -58,18 +58,18 @@ int emptyList(List L){
     return p->Next==NULL;
 }
 
-void Read_List(List *L){
+void readList(List *L){
     Position P = first(*L);
     int n,x;
     printf("Nhap so luong danh sach: ");scanf("%d",&(n));
     for(int i=0;i<n;i++){
         scanf("%d",&x);
-        Insert_List(x,P,&L);
+        insertList(x,P,&L);
         P=P->Next;
     }
 }
 
-void Print_List(List L){
+void printList(List L){
     Position P=first(L);
     while(P->Next!=NULL){
         printf("%d",retrieve(P,L));
@@ -77,7 +77,7 @@ void Print_List(List L){
     }
 }
 
-void Insert_List(ElementType X,Position P,List *L){
+void insertList(ElementType X,Position P,List *L){
     Position T = (struct Node *)malloc(sizeof(struct Node));
     T->Element=X;
     T->Next=P->Next;

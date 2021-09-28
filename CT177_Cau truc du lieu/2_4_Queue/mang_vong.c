@@ -34,7 +34,7 @@ void deQueue(Queue *pQ){
         if(pQ->Front==pQ->Rear)
             makenullQueue(pQ);
         else 
-            pQ->Front=(pQ->Front+1)%MaxLength;     //ngam lai
+            pQ->Front=(pQ->Front+1)%MaxLength;     
     }else printf("Loi: Hang rong!!!");
 }
 

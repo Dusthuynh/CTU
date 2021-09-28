@@ -26,7 +26,7 @@ Position next(Position P, List L){
     return P+1;
 }
 
-Position Locate(ElementType X, List L){
+Position locate(ElementType X, List L){
     Position P = first(L);
     int Found = 0;
     while((P != endList(L)) && (Found == 0 )){
@@ -44,21 +44,21 @@ int fullList(List L){
     return L.Last==MaxLength;
 }
 
-void MakeNull_List(List *L){
+void makenullList(List *L){
     L->Last=0; 
 }
 
-void Read_List(List *L){
+void readList(List *L){
     Position P = first(*L);
     printf("Nhap so luong danh sach: ");scanf("%d",&(L->Last));
-    printf("Roi nhap di\n");
+    printf("Xin nhap:\n");
     while(P!=endList(*L)){
         scanf("%d", &(L->Elements[P-1]));
         P=next(P,*L);
     }
 }
 
-void Print_List(List L){
+void printList(List L){
     Position P=first(L);
     while (P != endList(L)){
         printf("%d ", L.Elements[P-1]);
@@ -67,7 +67,7 @@ void Print_List(List L){
     printf("\n");
 }
 
-void Insert_List(ElementType X,Position P,List *L){
+void insertList(ElementType X,Position P,List *L){
     if(fullList(*L))
         printf("Danh sach day\n");
     else if ((P<1) || (P>endList(*L)))
@@ -82,7 +82,7 @@ void Insert_List(ElementType X,Position P,List *L){
     }
 }
 
-void Delete_List(Position P, List *L){
+void deleteList(Position P, List *L){
     if (emptyList(*L))
         printf("Danh sach rong!\n");
     else if((P<1) || (P>L->Last))
@@ -95,14 +95,14 @@ void Delete_List(Position P, List *L){
     }
 }
 
-void Delete_duplicate(List *L){
+void deleteDuplicate(List *L){
     int  P = first(*L) - 1;
     int  Q;
     while (P != L->Last-1){
         Q = P + 1;
         while (Q != L->Last){
             if(L->Elements[P] == L->Elements[Q])
-                Delete_List(Q+1,L);
+                deleteList(Q+1,L);
             else
                 Q++;
         }
@@ -117,7 +117,7 @@ void swap(Position a, Position b, List *L){
      L->Elements[b-1]=temp;
 }
 
-void Sort_List(List *L){
+void sortList(List *L){
      Position P=first(*L);
      while (P!=endList(*L)){
            Position Q=next(P,*L);
@@ -133,29 +133,29 @@ void Sort_List(List *L){
 int main(){
     ElementType X;
     Position P;
-    MakeNull_List(&L);
-    Read_List(&L);
+    makenullList(&L);
+    readList(&L);
     printf("Danh sach vua nhap: ");
-    Print_List(L); // In danh sach len man hinh
+    printList(L); // In danh sach len man hinh
 
     printf("Phan tu can them: ");scanf("%d",&X);
     printf("Vi tri can them: ");scanf("%d",&P);
-    Insert_List(X,P,&L);
+    insertList(X,P,&L);
     printf("Danh sach sau khi them phan tu la: ");
-    Print_List(L);
+    printList(L);
 
     printf("Noi dung phan tu can xoa: ");scanf("%d",&X);
-    P = Locate(X,L);
-    Delete_List(P,&L);
+    P = locate(X,L);
+    deleteList(P,&L);
     printf("Danh sach sau khi xoa %d la: ",X);
-    Print_List(L);
+    printList(L);
 
     printf("Danh sach sau khi xoa trung lap la: ");
-    Delete_duplicate(&L);
-    Print_List(L);
+    deleteDuplicate(&L);
+    printList(L);
 
-    printf("Danh sach sau khi sap xep tang dan la: \n");
-    Sort_List(&L);
-    Print_List(L);
+    printf("Danh sach sau khi sap xep tang dan la: ");
+    sortList(&L);
+    printList(L);
     return 0;
 }

@@ -14,7 +14,7 @@ typedef struct{
     Position n;
 }DanhSach;
 
-void makeNullList(DanhSach *pL){
+void makenullList(DanhSach *pL){
     pL->n=0;
 }
 
@@ -40,7 +40,7 @@ void printList(DanhSach L){
         printf("%s - %s - %.2f - %.2f - %.2f\n",(L.A[i].MSSV),(L.A[i].HoTen),(L.A[i].DLT),(L.A[i].DTH1),(L.A[i].DTH2));
 }
 
-void printSVDat(DanhSach L){
+void printSvDat(DanhSach L){
     float DiemS;
     for(int i=0; i<L.n; i++){
         DiemS=(L.A[i].DLT)+(L.A[i].DTH1)+(L.A[i].DTH2);
@@ -51,7 +51,7 @@ void printSVDat(DanhSach L){
 
 int main(){
     DanhSach SV;
-    makeNullList(&SV);
+    makenullList(&SV);
    // printf("Nhap so luong:");
     scanf("%d",&(SV.n));
   //  printf("Nhap thong tin:\n");
@@ -59,5 +59,5 @@ int main(){
   //  printf("In thong tin:\n");
     printList(SV);
     printf("Sinh vien DAT\n");
-    printSVDat(SV);
+    printSvDat(SV);
 }

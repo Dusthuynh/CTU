@@ -23,10 +23,14 @@ public class Date {
 		System.out.printf("%02d/%02d/%4d\n",ngay,thang,nam);
 	}
 
+	public String toString() {
+		return ngay+"/"+thang+"/"+nam;
+	}
+	
 	public void nhap() {
 		Scanner sc = new Scanner(System.in);
 		do {
-			System.out.println("Nhap date: ##/##/####");
+			System.out.print("Nhap date(dd/mm/yyyy): ");
 			String date=sc.next();
 			String[] arr=(date.split("/"));
 			ngay = Integer.parseInt(arr[0]);

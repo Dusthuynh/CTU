@@ -51,4 +51,3 @@ void enQueue(ElementType x, Queue *pQ){
     }
     else printf("Loi: Hang day!");
 }
-
