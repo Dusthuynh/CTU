@@ -29,7 +29,7 @@ public class SDSinhVien {
 		System.out.println("*Nhap thong tin SV a");
 		a.nhapThongTin();
 		a.nhapDiemAll();
-		a.themTen1HP("LTHDT");
+		a.them1HP("LTHDT","A");
 		System.out.println("*Thong tin cua SV a: \n"+a);
 		System.out.println();
 		

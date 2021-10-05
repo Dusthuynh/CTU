@@ -1,5 +1,6 @@
 #include<stdio.h>
 
+
 typedef int ElementType;
 
 struct Node{

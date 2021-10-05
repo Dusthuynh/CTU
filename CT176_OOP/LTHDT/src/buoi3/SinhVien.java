@@ -8,26 +8,44 @@ public class SinhVien {
 	private String mssv;
 	private	String hoten;
 	private	Date ngsinh;
-	final static int MAX = 50;
+	private int MAX;
 	private int slHP;
 	private String tenHP[];
 	private String diemHP[];
 	
 	public SinhVien() {
-		mssv   = "AAA";
-		hoten  = "Nguyen Van A";
+		mssv   = new String();
+		hoten  = new String();
 		ngsinh = new Date();
 		slHP = 0;
+		MAX = 60;
 		tenHP = new String[MAX];
 		diemHP = new String[MAX];
 	}
+	
+	public SinhVien(int max1) {
+		mssv   = new String();
+		hoten  = new String();
+		ngsinh = new Date();
+		slHP = 0;
+		MAX = max1;
+		tenHP = new String[MAX];
+		diemHP = new String[MAX];
+	}
+	
 	public SinhVien(SinhVien SV) {
-		mssv   = SV.mssv;
-		hoten  = SV.hoten;
-		ngsinh = SV.ngsinh;
+		mssv   = new String(SV.mssv);
+		hoten  = new String(SV.hoten);
+		ngsinh = new Date(SV.ngsinh);
 		slHP   = SV.slHP;
-		tenHP  = SV.tenHP;
-		diemHP = SV.diemHP;
+		MAX = SV.MAX;
+		tenHP  = new String[MAX];
+		diemHP = new String[MAX];
+		for(int i=0; i<slHP; i++) {
+			tenHP[i]  = new String(SV.tenHP[i]);
+			diemHP[i] = new String(SV.diemHP[i]);
+		}
+		
 	}
 	public SinhVien(String mssv1, String hoten1, Date ngsinh1) {
 		mssv   = mssv1;
@@ -59,10 +77,14 @@ public class SinhVien {
 		slHP+=1;
 	}
 	
-	public void themTen1HP(String str) {
-		System.out.println("Da dang ki HP "+str+" cho Sinh vien");
-		tenHP[slHP]=str;
-		slHP+=1;
+	public void them1HP(String ten, String diem) {
+		if(slHP < MAX-1) {
+			System.out.println("Da dang ki HP "+ten+" cho Sinh vien");
+			tenHP[slHP]= new String(ten);
+			diemHP[slHP]= new String(diem);
+			slHP++;
+		}
+		else System.out.println("Ban khong the them vi da day!!");
 	}
 	
 	public void nhapDiemAll() {
@@ -103,16 +125,19 @@ public class SinhVien {
 		}
 	}
 	
-	public String inTenHPAll() {
-		String s="";
+	public void in() {
+		System.out.println("MSSV:"+mssv+"; HoTen:"+hoten+"; Ngay Sinh:"+ngsinh+"\n    ");
 		for(int i=0;i<slHP;i++) {
-			s+=" "+tenHP[i]+";";
+			System.out.println(" "+tenHP[i]+":"+diemHP[i]+";");
 		}
-		return s;
 	}
 	
 	public String toString() {
-		return "MSSV:"+mssv+"; HoTen:"+hoten+"; Ngay Sinh:"+ngsinh+"\n   Cac hoc phan dang ki:"+inTenHPAll();
+		String s = "MSSV:"+mssv+"; HoTen:"+hoten+"; Ngay Sinh:"+ngsinh+"\n    ";
+		for(int i=0;i<slHP;i++) {
+			s = s + tenHP[i]+":"+diemHP[i]+", ";
+		}
+		return s;
 	}
 	
 	float tinhDiemTB() {

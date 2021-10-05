@@ -18,6 +18,12 @@ public class Date {
 		this.thang=thang;
 		this.nam=nam;
 	}
+	
+	public Date(Date date1) {
+		ngay=date1.ngay;
+		thang=date1.thang;
+		nam=date1.nam;
+	}
 
 	public void in() {
 		System.out.printf("%02d/%02d/%4d\n",ngay,thang,nam);
