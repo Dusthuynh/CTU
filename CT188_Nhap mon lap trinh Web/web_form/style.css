@@ -1,0 +1,63 @@
+@font-face {
+    font-family: myFirstFont;
+    src: url(/font/MTD\ VVD\ Golden\ Horn\ Pressed.otf);
+
+}
+body{
+    font-family: myFirstFont;
+    font-size: 22px;
+    margin: 3%;
+    background-image: url(https://images.unsplash.com/photo-1633455854684-58e30be0df31?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1353&q=80);
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: rgb(98, 133, 187);
+    
+}
+
+#inputDateOfBirth{
+    display: flex;
+    align-items:flex-end;
+    gap: 10px;
+}
+
+iframe{
+    border-radius: 5px;
+    width: 300px;
+    height: 300px;
+}
+.map{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#bodyPart{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 100px;
+    margin-left: 150px;
+    margin-right: 100px;
+}
+
+#form{
+    padding: 17px;
+    background-color: aliceblue;
+    border-radius: 5px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+#output{
+    width: 300px;
+    padding: 12px 20px;
+    background-color: aliceblue;
+    line-height: 40px;
+    border-radius: 5px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.output-title{
+    display: inline-block;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}

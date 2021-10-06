@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Demo registration</title>
+</head>
+<body>
+    <h1 style="text-align: center;">YourEvent</h1>
+    <h2 style="text-align: center;">Online Registration</h2>
+    
+    <div id = "bodyPart">
+        <div id = "form" >
+            <form name="frm" method="GET" action="b.php">  
+                <div class="input First Name"> <label for="txtFirstName">First Name</label><div></div><input type="text" name="txtFirstName" value="" maxlength="50"  size="34"></div>
+                <div class="input Last Name"> <label for="txtLastName">Last Name</label><div></div> <input type="text" name="txtLastName" value="" maxlength="50" size="34"></div>
+                <div class="input Company"> <label for="txtCompany">Company</label><div></div> <input type="text" name="txtCompany" value="" maxlength="50" size="34"></div>
+                <div class="input Phone"> <label for="txtPhone">Phone</label><div></div> <input type="text" name="txtPhone" value="" maxlength="50" size="34"></div>
+                <div class="input Email"> <label for="txtEmail">Email</label><div></div> <input type="text" name="txtEmail" value="" maxlength="50" size="34"></div>
+                <div class="inputAddress"> <label for="txtAddress">Address</label><div></div> <input type="text" name="txtAddress" value="" maxlength="50" size="34"></div>   
+                <label for="dob">Day of birth</label><div></div>
+                <input type="date" id="txtdob">
+                <input type="button" id="sub" value="Submit">
+                <input type="reset" id="reset" value="Reset">
+            </form>
+        </div>
+
+        <div id = "output">
+            <h3 class="output-title">CUSTOMER INFORMATION</h3>
+            <div class="name">Name: </div>
+            <div class="company">Company: </div>
+            <div class="phone">Phone: </div>
+            <div class="email">Email: </div>
+            <div class="address">Address: </div>
+            <div class="dob">Day of birth: </div>
+        </div>
+    </div>
+
+<script src = 'script.js'></script>   
+</body>
+</html>
