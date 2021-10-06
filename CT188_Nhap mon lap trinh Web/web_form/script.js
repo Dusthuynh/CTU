@@ -25,12 +25,12 @@ function output(){
 }
 
 function clear(){
-    sumString('name', 'Name: ');
-    sumString('company', 'Company: ');
-    sumString('phone','Phone: ');
-    sumString('email', 'Email: ');
-    sumString('address', 'Address: ');
-    sumString('dob', 'Day of birth: ');
+    sumString('name', 'Name:');
+    sumString('company', 'Company:');
+    sumString('phone','Phone:');
+    sumString('email', 'Email:');
+    sumString('address', 'Address:');
+    sumString('dob', 'Day of birth:');
 }
 
 function sumString(className, Val){
