@@ -2,48 +2,53 @@ var hours = document.getElementById("hours");
 var minutes = document.getElementById("minutes");
 var seconds = document.getElementById("seconds");
 var totalSeconds = 0;
+var myStart;
 var btnStart = document.getElementsByClassName("btn start")[0];
 var btnPause = document.getElementsByClassName("btn pause")[0];
 var btnStop = document.getElementsByClassName("btn stop")[0];
 var btnReset = document.getElementsByClassName("btn reset")[0];
-var btn = [btnStart,btnPause,btnStop,btnReset];
+var clickedStart = false, clickedPause = false;
+window.onload = main;
+function main(){
+    btnStart.onclick = runStart;
+    btnPause.onclick = runPause;
+    btnStop.onclick  = runStop;
+    btnReset.onclick = runReset;
+}
 
-
-btnStart.onclick = function (){
-    var myStart = setInterval(fStart, 1000);
+function runStart(){
+    myStart = setInterval(fStart, 1000);
     btnStart.disabled=true;
+    clickedStart = true;
+}
 
-    btnPause.onclick = function (){
+function runPause(){
+    if(clickedStart == true){
         clearInterval(myStart);
         btnStart.value="Cont";
         btnStart.disabled=false;
+        clickedPause = true;
     }
+}
 
-    btnStop.onclick = function (){
+function runStop(){
+    if(clickedStart == true || clickedPause == true){
         btnStart.value="Start";
         clearInterval(myStart);
         btnStart.disabled=true;
         btnPause.disabled=true;
     }
+}
 
-    btnReset.onclick = function (){
+function runReset(){
         btnStart.value="Start";
         clearInterval(myStart);
         btnStart.disabled=false;
         btnPause.disabled=false;
+        clickedStart = false;
+        clickedPause = false;
         fReset();
-    }
-
-    
-}
-
-
-function fReset(){
-    hours.innerHTML = "00";
-    minutes.innerHTML = "00";
-    seconds.innerHTML = "00";
-    totalSeconds = 0;
-}
+}   
 
 function fStart(){
     ++totalSeconds;
@@ -60,3 +65,11 @@ function pad(val){
         return valString;
     }
 }
+
+function fReset(){
+    hours.innerHTML = "00";
+    minutes.innerHTML = "00";
+    seconds.innerHTML = "00";
+    totalSeconds = 0;
+}
+
