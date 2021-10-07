@@ -15,7 +15,7 @@ var breakSound = document.getElementById("breakSound");
 window.onload = main;
 function main(){
     var today = new Date();
-    var date = today.getDate()+"/"+today.getMonth()+"/"+today.getFullYear();
+    var date = today.getDate()+"/"+(today.getMonth()+1)+"/"+today.getFullYear();
     document.getElementById("today").innerHTML = date;
     btnStart.onclick = runStart;
     btnPause.onclick = runPause;
