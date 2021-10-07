@@ -10,8 +10,13 @@ var btnReset = document.getElementsByClassName("btn reset")[0];
 var clickedStart = false, clickedPause = false;
 var audioPlayer = document.getElementById("audioPlayer");
 var audioVolume = document.getElementById("audioVolume");
+var startSound = document.getElementById("startSound");
+var breakSound = document.getElementById("breakSound");
 window.onload = main;
 function main(){
+    var today = new Date();
+    var date = today.getDate()+"/"+today.getMonth()+"/"+today.getFullYear();
+    document.getElementById("today").innerHTML = date;
     btnStart.onclick = runStart;
     btnPause.onclick = runPause;
     btnStop.onclick  = runStop;
@@ -30,12 +35,13 @@ function runStart(){
     btnStart.disabled=true;
     clickedStart = true;
     audioPlayer.play();
+    startSound.play();
 }
 
 function runPause(){
     if(clickedStart == true){
         clearInterval(myStart);
-        btnStart.value="Cont";
+        btnStart.value="Conti.";
         btnStart.disabled=false;
         clickedPause = true;
         audioPlayer.pause();
@@ -64,10 +70,16 @@ function runReset(){
 }   
 
 function fStart(){
-    ++totalSeconds;
-    seconds.innerHTML = pad(totalSeconds%60);
-    minutes.innerHTML = pad(parseInt(totalSeconds/60));
-    hours.innerHTML   = pad(parseInt(totalSeconds/3600));
+        ++totalSeconds;
+        var temp = totalSeconds;
+        hours.innerHTML   = pad(parseInt(temp/3600));
+        temp%=3600;
+        minutes.innerHTML = pad(parseInt(temp/60));
+        seconds.innerHTML = pad(temp%60);
+        if((totalSeconds>0) && (totalSeconds%2700==0)){
+            breakSound.play();
+            btnPause.click();
+        }
 }
 
 function pad(val){
@@ -85,4 +97,3 @@ function fReset(){
     seconds.innerHTML = "00";
     totalSeconds = 0;
 }
-
