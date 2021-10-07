@@ -8,18 +8,28 @@ var btnPause = document.getElementsByClassName("btn pause")[0];
 var btnStop = document.getElementsByClassName("btn stop")[0];
 var btnReset = document.getElementsByClassName("btn reset")[0];
 var clickedStart = false, clickedPause = false;
+var audioPlayer = document.getElementById("audioPlayer");
+var audioVolume = document.getElementById("audioVolume");
 window.onload = main;
 function main(){
     btnStart.onclick = runStart;
     btnPause.onclick = runPause;
     btnStop.onclick  = runStop;
     btnReset.onclick = runReset;
+    audioVolume.oninput = runVolume;
+}
+
+function runVolume(){
+    audioPlayer.volume = (audioVolume.value/100);
+    var titleVolume = document.getElementsByClassName("titleVolume")[0];
+    titleVolume.innerHTML = audioVolume.value +"%";
 }
 
 function runStart(){
     myStart = setInterval(fStart, 1000);
     btnStart.disabled=true;
     clickedStart = true;
+    audioPlayer.play();
 }
 
 function runPause(){
@@ -28,6 +38,7 @@ function runPause(){
         btnStart.value="Cont";
         btnStart.disabled=false;
         clickedPause = true;
+        audioPlayer.pause();
     }
 }
 
@@ -37,6 +48,7 @@ function runStop(){
         clearInterval(myStart);
         btnStart.disabled=true;
         btnPause.disabled=true;
+        audioPlayer.pause();
     }
 }
 
@@ -48,6 +60,7 @@ function runReset(){
         clickedStart = false;
         clickedPause = false;
         fReset();
+        audioPlayer.pause();
 }   
 
 function fStart(){
