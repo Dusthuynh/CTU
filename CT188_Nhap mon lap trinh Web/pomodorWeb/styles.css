@@ -99,3 +99,31 @@ iframe{
     background-color: #abb5c2;
     border-radius: 5px;
 }
+
+#cam{
+    margin: 10px auto;
+    width: 280px;
+    height: 210px;
+    border: 10px rgb(209, 232, 240) solid;
+    border-radius: 3px;
+    position:absolute;
+    margin-top: 300px;
+    margin-right: 300px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+#video{
+    width: 280px;
+    height: 210px;
+    background-color: #666;
+}
+
+.btnCamera{
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.cam{
+    width: 80px;
+}

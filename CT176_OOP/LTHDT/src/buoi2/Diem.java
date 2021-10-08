@@ -16,6 +16,11 @@ public class Diem {
 		this.y=y;
 	}
 
+	public Diem(Diem a) {
+		x = a.x;
+		y = a.y;
+	}
+	
 	public void nhap() {
 		Scanner sc = new Scanner(System.in);
 		System.out.print("Nhap x= ");
@@ -28,6 +33,10 @@ public class Diem {
 		System.out.println("("+x+","+y+")");
 	}
 
+	public String toString() {
+		return "("+x+","+y+")";
+	}
+	
 	public void tinhTien(int dx, int dy) {
 		x+=dx;
 		y+=dy;

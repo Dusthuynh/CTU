@@ -29,7 +29,8 @@ public class SDSinhVien {
 		System.out.println("*Nhap thong tin SV a");
 		a.nhapThongTin();
 		a.nhapDiemAll();
-		a.them1HP("LTHDT","A");
+		a.themTen1HP("LTHDT");
+		System.out.println("Da them hoc phan LTHDT cho SV a");
 		System.out.println("*Thong tin cua SV a: \n"+a);
 		System.out.println();
 		
@@ -47,8 +48,13 @@ public class SDSinhVien {
 		
 		System.out.println();
 		System.out.println("*Cac Sinh vien bi canh cao hoc vu:");
+		int demCanhCao = 0;
 		for(int i=0;i<n;i++)
-			if(DS[i].tinhDiemTB()<0.8) System.out.println("- "+DS[i]);
+			if(DS[i].tinhDiemTB()<0.8) {
+				System.out.println("- "+DS[i]);
+				demCanhCao++;
+			}
+		if(demCanhCao==0) System.out.println("<Khong co sinh vien nao>");
 		
 		System.out.println();
 		float diemMax=DS[0].tinhDiemTB();

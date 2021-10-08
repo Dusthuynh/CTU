@@ -37,5 +37,10 @@ function sumString(className, Val){
     document.getElementsByClassName(className)[0].innerHTML= Val;
 }
 
-
-
+function isNum(event){
+    var key = event.which || event.keyCode;
+    if (key < 48 || key > 57 ){
+        return false;
+    }
+    return true;
+}

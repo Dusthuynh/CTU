@@ -12,6 +12,9 @@ var audioPlayer = document.getElementById("audioPlayer");
 var audioVolume = document.getElementById("audioVolume");
 var startSound = document.getElementById("startSound");
 var breakSound = document.getElementById("breakSound");
+var btnCam = document.getElementsByClassName("btn cam")[0];
+var countCam = 0;
+
 window.onload = main;
 function main(){
     var today = new Date();
@@ -22,7 +25,17 @@ function main(){
     btnStop.onclick  = runStop;
     btnReset.onclick = runReset;
     audioVolume.oninput = runVolume;
+    var video = document.getElementById('video');
+    if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+        navigator.mediaDevices.getUserMedia({ video: true }).then(function(stream) {
+            video.srcObject = stream;
+            video.play();
+        });
+    }
+    btnCam.onclick = togCam;
 }
+
+
 
 function runVolume(){
     audioPlayer.volume = (audioVolume.value/100);
@@ -96,4 +109,16 @@ function fReset(){
     minutes.innerHTML = "00";
     seconds.innerHTML = "00";
     totalSeconds = 0;
+}
+
+function togCam(){
+    ++countCam;
+    let cam = document.getElementById("cam");
+    if(countCam%2==1)
+    {
+        cam.style.display="none";
+    }else
+    {
+        cam.style.display="block";
+    }
 }

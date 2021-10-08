@@ -45,8 +45,8 @@ public class SinhVien {
 			tenHP[i]  = new String(SV.tenHP[i]);
 			diemHP[i] = new String(SV.diemHP[i]);
 		}
-		
 	}
+	
 	public SinhVien(String mssv1, String hoten1, Date ngsinh1) {
 		mssv   = mssv1;
 		hoten  = hoten1;
@@ -68,12 +68,23 @@ public class SinhVien {
 		hoten=sc.nextLine();
 		System.out.print("  Ngay sinh: ");
 		ngsinh.nhap();
-        nhapTenHPAll();
+		System.out.print("Nhap so luong hoc phan: ");
+		int n=sc.nextInt();
+		for(int i=0;i<n;i++) {
+			System.out.print("  Nhap ten HP"+(i+1)+": ");
+			themTen1HP();
+		}
 	}
 	
 	public void themTen1HP() {
 		Scanner sc = new Scanner(System.in);
 		tenHP[slHP]=sc.nextLine();
+		slHP+=1;
+	}
+	
+	public void themTen1HP(String ten) {
+		tenHP[slHP] = new String(ten);
+		diemHP[slHP] = "(chua co)";
 		slHP+=1;
 	}
 	
@@ -115,16 +126,6 @@ public class SinhVien {
 		slHP-=1;
 	}
 	
-	public void nhapTenHPAll() {
-		Scanner sc = new Scanner(System.in);
-		System.out.print("Nhap so luong hoc phan: ");
-		int n=sc.nextInt();
-		for(int i=0;i<n;i++) {
-			System.out.print("  Nhap ten HP"+(i+1)+": ");
-			themTen1HP();
-		}
-	}
-	
 	public void in() {
 		System.out.println("MSSV:"+mssv+"; HoTen:"+hoten+"; Ngay Sinh:"+ngsinh+"\n    ");
 		for(int i=0;i<slHP;i++) {
@@ -142,34 +143,43 @@ public class SinhVien {
 	
 	float tinhDiemTB() {
 		float tongDiem = 0;
+		int count = 0;
 		for(int i=0;i<slHP;i++) {
 			switch(diemHP[i]) {
 				case "F":
 					tongDiem+=0;
+					count ++;
 					break;
 				case "D":
 					tongDiem+=1;
+					count ++;
 					break;
 				case "D+":
 					tongDiem+=1.5;
+					count ++;
 					break;
 				case "C":
 					tongDiem+=2;
+					count ++;
 					break;
 				case "C+":
 					tongDiem+=2.5;
+					count ++;
 					break;
 				case "B":
 					tongDiem+=3;
+					count ++;
 					break;
 				case "B+":
 					tongDiem+=3.5;
+					count ++;
 					break;
 				case "A":
 					tongDiem+=4;
+					count ++;
 					break;	
 			}
 		}
-		return tongDiem/slHP;
+		return tongDiem/count;
 	}
 }
