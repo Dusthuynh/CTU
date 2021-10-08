@@ -35,8 +35,6 @@ function main(){
     btnCam.onclick = togCam;
 }
 
-
-
 function runVolume(){
     audioPlayer.volume = (audioVolume.value/100);
     var titleVolume = document.getElementsByClassName("titleVolume")[0];
@@ -114,11 +112,10 @@ function fReset(){
 function togCam(){
     ++countCam;
     let cam = document.getElementById("cam");
-    if(countCam%2==1)
-    {
-        cam.style.display="none";
-    }else
-    {
-        cam.style.display="block";
+    if(countCam%2==1){
+        cam.style.height="auto";
+        cam.style.opacity="1";
+    }else{
+        cam.style.opacity="0";
     }
 }
