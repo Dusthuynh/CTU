@@ -28,7 +28,7 @@ ElementType Front(Queue Q){
 
 void enQueue(ElementType x, Queue *pQ){
     pQ->Rear->Next=(struct Node*)malloc(sizeof(struct Node));
-    pQ->Rear=pQ->Rear->Next;
+    pQ->Rear = pQ->Rear->Next;
     pQ->Rear->Element=x;
     pQ->Rear->Next==NULL;
 }

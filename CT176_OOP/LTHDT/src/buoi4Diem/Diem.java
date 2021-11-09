@@ -1,8 +1,8 @@
-package buoi2;
+package buoi4Diem;
 
 import java.util.Scanner;
 
-public class Diem {
+public class Diem implements Movable {
 	private int x;
 	private int y;
 	
@@ -21,6 +21,7 @@ public class Diem {
 		y = a.y;
 	}
 	
+	@Override
 	public void nhap() {
 		Scanner sc = new Scanner(System.in);
 		System.out.print("Nhap x= ");
@@ -29,10 +30,12 @@ public class Diem {
 		y=sc.nextInt();
 	}
 
+	@Override
 	public void in() {
 		System.out.print("("+x+","+y+")");
 	}
 
+	@Override
 	public String toString() {
 		return "("+x+","+y+")";
 	}
@@ -56,6 +59,14 @@ public class Diem {
 
 	public float khoangCach(Diem d) {
 		return (float)Math.sqrt(Math.pow(x-d.x, 2) + Math.pow(y-d.y, 2));
+	}
+	
+	public void moveUp() {
+		
+	}
+
+	public void moveDown() {
+		
 	}
 
 }

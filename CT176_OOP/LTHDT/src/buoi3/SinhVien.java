@@ -103,7 +103,7 @@ public class SinhVien {
 		System.out.println("Nhap diem hoc phan:");
 		for(int i=0;i<slHP;i++) {
 			System.out.print("  "+tenHP[i]+": ");
-			diemHP[i]=sc.next();
+			diemHP[i]=sc.nextLine();
 		}
 	}
 	
@@ -127,7 +127,7 @@ public class SinhVien {
 	}
 	
 	public void in() {
-		System.out.println("MSSV:"+mssv+"; HoTen:"+hoten+"; Ngay Sinh:"+ngsinh+"\n    ");
+		System.out.print("MSSV:"+mssv+"; HoTen:"+hoten+"; Ngay Sinh:"+ngsinh+"\n    ");
 		for(int i=0;i<slHP;i++) {
 			System.out.println(" "+tenHP[i]+":"+diemHP[i]+";");
 		}
@@ -141,7 +141,7 @@ public class SinhVien {
 		return s;
 	}
 	
-	float tinhDiemTB() {
+	public float tinhDiemTB() {
 		float tongDiem = 0;
 		int count = 0;
 		for(int i=0;i<slHP;i++) {
@@ -181,5 +181,9 @@ public class SinhVien {
 			}
 		}
 		return tongDiem/count;
+	}
+	
+	public String layEmail() {
+		return "";
 	}
 }

@@ -29,7 +29,7 @@ function main(){
     if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
         navigator.mediaDevices.getUserMedia({ video: true }).then(function(stream) {
             video.srcObject = stream;
-            video.play();
+            video.play();   
         });
     }
     btnCam.onclick = togCam;
@@ -112,7 +112,7 @@ function fReset(){
 function togCam(){
     ++countCam;
     let cam = document.getElementById("cam");
-    if(countCam%2==1){
+    if(countCam%2==1){ 
         cam.style.height="auto";
         cam.style.opacity="1";
     }else{

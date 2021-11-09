@@ -25,7 +25,7 @@ int fullQueue(Queue Q){                        //!!important
 ElementType front(Queue Q){
     if (emptyQueue(Q))
         printf("Hang rong");
-    else 
+    else
         return Q.Elements[Q.Front];
 }
 
@@ -33,21 +33,15 @@ void deQueue(Queue *pQ){
     if(!emptyQueue(*pQ)){
         if(pQ->Front==pQ->Rear)
             makenullQueue(pQ);
-        else 
-            pQ->Front=(pQ->Front+1)%MaxLength;     
+        else
+            pQ->Front=(pQ->Front+1)%MaxLength;
     }else printf("Loi: Hang rong!!!");
 }
 
 void enQueue(ElementType x, Queue *pQ){
     if(!fullQueue(*pQ)){
         if(emptyQueue(*pQ)) pQ->Front=0;
-        if (pQ->Rear==MaxLength-1){
-            for(int i=pQ->Front; i<=pQ->Rear; i++)
-                pQ->Elements[i-(pQ->Front)]=pQ->Elements[i];
-            pQ->Rear = MaxLength - (pQ->Front) - 1;
-            pQ->Front=0;
-        }
-        pQ->Rear=pQ->Rear+1;
+        pQ->Rear=(pQ->Rear+1)%MaxLength;
         pQ->Elements[pQ->Rear]=x;
     }
     else printf("Loi: Hang day!");
