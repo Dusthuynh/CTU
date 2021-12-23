@@ -87,7 +87,7 @@ function fStart(){
         temp%=3600;
         minutes.innerHTML = pad(parseInt(temp/60));
         seconds.innerHTML = pad(temp%60);
-        if((totalSeconds>0) && (totalSeconds%2700==0)){
+        if((totalSeconds>0) && (totalSeconds%3000==0)){
             breakSound.play();
             btnPause.click();
         }
